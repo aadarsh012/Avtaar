@@ -1,4 +1,5 @@
 const express = require("express");
+
 const uid = require("./controllers/uidGenerate");
 
 const app = express();
