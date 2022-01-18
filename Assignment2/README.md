@@ -48,7 +48,7 @@ Add in the body the following
 
 ## Screenshots
 
-![PostmanAddUser](/ScreenShots/PostmanAddUser.png)
-![AddUserDatabase](/ScreenShots/AddUserDatabase.png)
-![PostmanAddEvent](/ScreenShots/PostmanAddEvent.png)
-![AddEventDatabase](/ScreenShots/AddEventDatabase.png)
+![PostmanAddUser](./Screenshots/PostmanAddUser.png)
+![AddUserDatabase](./Screenshots/AddUserDatabase.png)
+![PostmanAddEvent](./Screenshots/PostmanAddEvent.png)
+![AddEventDatabase](./Screenshots/AddEventDatabase.png)
