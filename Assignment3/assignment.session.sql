@@ -37,130 +37,171 @@ VALUES (
         2,
         'dummy event',
         'ONETIME',
-        '2025-12-03',
-        '2025-12-04'
+        '2022-01-22',
+        '2022-02-03'
     ),
     (
         3,
         'birthday',
         'YEARLY',
-        '2025-12-03',
-        '2025-12-04'
+        '2022-01-22',
+        '2022-02-03'
     ),
     (
         4,
         'birthday',
         'YEARLY',
-        '2025-12-03',
-        '2025-12-04'
+        '2022-01-22',
+        '2022-02-03'
     ),
     (
         5,
         'birthday',
         'YEARLY',
-        '2025-12-03',
-        '2025-12-04'
+        '2022-01-22',
+        '2022-02-03'
     ),
     (
         2,
         'marriage',
         'ONETIME',
-        '2025-12-03',
-        '2025-12-04'
+        '2022-01-22',
+        '2022-02-03'
     ),
-    (2, 'Exam', 'YEARLY', '2025-12-03', '2025-12-04'),
+    (
+        2,
+        'Exam',
+        'YEARLY',
+        '2022-01-22',
+        '2022-02-03'
+    ),
     (
         4,
         'Dance Competetion',
         'ONETIME',
-        '2025-12-03',
-        '2025-12-04'
+        '2022-01-22',
+        '2022-02-03'
     ),
     (
         1,
         'Hackathon',
         'YEARLY',
-        '2022-12-03',
-        '2022-12-04'
+        '2022-01-25',
+        '2022-01-27'
     ),
     (
         2,
         'Semester',
         'YEARLY',
-        '2022-03-03',
-        '2025-03-09'
+        '2022-01-30',
+        '2025-01-30'
     ),
     (
         5,
         'Birthday',
         'YEARLY',
-        '2025-12-03',
-        '2025-12-04'
+        '2022-01-22',
+        '2022-02-03'
     ),
-    (5, 'Exam', 'ONETIME', '2025-12-03', '2025-12-04'),
-    (5, 'Demo', 'ONETIME', '2025-12-03', '2025-12-04'),
-    (1, 'JWOC', 'YEARLY', '2025-12-03', '2025-12-04'),
+    (5, 'Exam', 'ONETIME', '2022-01-25', '2025-12-04'),
+    (5, 'Demo', 'ONETIME', '2022-01-28', '2022-01-30'),
+    (
+        1,
+        'JWOC',
+        'YEARLY',
+        '2022-01-22',
+        '2022-02-03'
+    ),
     (
         4,
         'Finals',
         'ONETIME',
-        '2025-12-03',
-        '2025-12-04'
+        '2022-01-28',
+        '2022-01-30'
     ),
     (
         3,
         'Seminar',
         'YEARLY',
-        '2025-12-03',
-        '2025-12-04'
+        '2022-01-28',
+        '2022-01-30'
     ),
     (
         3,
         'College',
         'ONETIME',
-        '2025-12-03',
-        '2025-12-04'
+        '2022-01-28',
+        '2022-01-30'
     ),
     (
         1,
         'Intership',
         'ONETIME',
-        '2025-12-03',
-        '2025-12-04'
+        '2022-01-28',
+        '2022-03-28'
     ),
     (
         2,
         'Demo Event',
         'ONETIME',
-        '2025-12-03',
-        '2025-12-04'
-    ),
-    (
-        5,
-        'Excursion',
-        'YEARLY',
-        '2025-12-03',
-        '2025-12-04'
-    ),
-    (
-        2,
-        'Anniversary',
-        'YEARLY',
-        '2025-12-03',
-        '2025-12-04'
+        '2022-01-28 ',
+        '2022-03-28'
     ),
     (
         1,
-        'Webinar',
+        'Demo Event',
         'ONETIME',
-        '2025-12-03',
-        '2025-12-04'
+        '2022-01-28 ',
+        '2022-03-28'
+    ),
+    (
+        3,
+        'Demo Event',
+        'ONETIME',
+        '2022-01-28 ',
+        '2022-03-28'
+    ),
+    (
+        4,
+        'Demo Event',
+        'ONETIME',
+        '2022-01-28 ',
+        '2022-03-28'
+    ),
+    (
+        5,
+        'Demo Event',
+        'ONETIME',
+        '2022-01-28 ',
+        '2022-03-28'
+    ),
+    (
+        2,
+        'Demo Event',
+        'ONETIME',
+        '2022-01-15 ',
+        '2022-03-28'
+    ),
+    (
+        5,
+        'Demo Event',
+        'ONETIME',
+        '2022-01-12 ',
+        '2022-03-28'
+    ),
+    (
+        3,
+        'Demo Event',
+        'ONETIME',
+        '2022-01-18 ',
+        '2022-03-28'
     );
 --@BLOCK
 -- Get all events for today
 SELECT *
 FROM Events
-WHERE startDate = curdate();
+WHERE startDate <= curdate()
+    AND endDate >= curdate();
 --@BLOCK
 -- Get all users for a list of uid
 SELECT *
@@ -175,10 +216,16 @@ WHERE uid = 1;
 -- Get all events for the next 7 days
 SELECT *
 FROM Events
-WHERE startDate BETWEEN curdate() AND curdate() + 7;
+WHERE (
+        startDate <= curdate()
+        AND endDate >= curdate()
+    )
+    AND (
+        startDate <= curdate() + 7
+        AND endDate >= curdate() + 7
+    );
 --@BLOCK
 select *
 from user;
 --@BLOCK
-select *
-from events;
+DELETE from events;
